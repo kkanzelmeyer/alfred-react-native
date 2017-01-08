@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   row: {
     flex: 1,
-    backgroundColor: Colors.fire,
+    backgroundColor: Colors.alfredSecondary,
     marginVertical: Metrics.smallMargin,
     justifyContent: 'center'
   },

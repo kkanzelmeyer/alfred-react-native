@@ -4,9 +4,9 @@ import {Colors} from '../../Themes/'
 
 export default {
   drawer: {
-    backgroundColor: Colors.background
+    backgroundColor: Colors.alfredLightGrey
   },
   main: {
     backgroundColor: Colors.clear
-  }
+  },
 }

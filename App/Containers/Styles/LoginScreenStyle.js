@@ -39,8 +39,8 @@ export default StyleSheet.create({
   loginButton: {
     flex: 1,
     borderWidth: 1,
-    borderColor: Colors.charcoal,
-    backgroundColor: Colors.panther,
+    borderColor: Colors.alfredSecondary,
+    backgroundColor: Colors.alfredSecondary,
     padding: 6
   },
   loginText: {
@@ -49,6 +49,7 @@ export default StyleSheet.create({
   },
   topLogo: {
     alignSelf: 'center',
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    height: 100
   }
 })

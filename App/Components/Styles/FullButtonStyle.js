@@ -6,7 +6,7 @@ import { Fonts, Colors } from '../../Themes/'
 export default StyleSheet.create({
   button: {
     marginVertical: 5,
-    borderTopColor: Colors.fire,
+    borderTopColor: Colors.alfredSecondary,
     borderBottomColor: Colors.bloodOrange,
     borderTopWidth: 1,
     borderBottomWidth: 1,

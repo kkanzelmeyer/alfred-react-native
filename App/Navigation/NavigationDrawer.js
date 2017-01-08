@@ -18,7 +18,7 @@ class NavigationDrawer extends Component {
     return (
       <Drawer
         ref='navigation'
-        type='displace'
+        type='overlay'
         open={state.open}
         onOpen={() => NavigationActions.refresh({key: state.key, open: true})}
         onClose={() => NavigationActions.refresh({key: state.key, open: false})}
@@ -27,9 +27,10 @@ class NavigationDrawer extends Component {
         tapToClose
         openDrawerOffset={0.2}
         panCloseMask={0.2}
+        closedDrawerOffset={-3}
         negotiatePan
         tweenHandler={(ratio) => ({
-          main: { opacity: Math.max(0.54, 1 - ratio) }
+          main: { opacity:(2-ratio)/2 }
         })}
       >
         <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
@@ -37,6 +38,17 @@ class NavigationDrawer extends Component {
     )
   }
 }
+// <Drawer
+//   type="overlay"
+//   content={<ControlPanel />}
+//   tapToClose={true}
+//   openDrawerOffset={0.2} // 20% gap on the right side of drawer
+//   panCloseMask={0.2}
+//   tweenHandler={(ratio) => ({
+//     main: { opacity: Math.max(0.54, 1 - ratio) }
+//   })}
+//   styles={drawerStyles}
+// >
 
 NavigationDrawer.propTypes = {
   navigationState: PropTypes.object

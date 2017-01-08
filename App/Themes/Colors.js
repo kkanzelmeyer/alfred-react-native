@@ -21,6 +21,9 @@ const colors = {
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
   alfredPrimary: '#009688',
+  alfredPrimaryLight: '#4DB6AC',
+  alfredSecondary: '#E040FB',
+  alfredSecondaryLight: '#EA80FC',
   alfredLightGrey: '#FAFAFA',
 }
 
