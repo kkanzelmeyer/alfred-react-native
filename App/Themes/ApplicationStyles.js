@@ -36,7 +36,7 @@ const ApplicationStyles = {
     sectionText: {
       color: Colors.coal,
       marginVertical: Metrics.smallMargin,
-      textAlign: 'center',
+      textAlign: 'center'
     },
     subtitle: {
       color: Colors.coal,

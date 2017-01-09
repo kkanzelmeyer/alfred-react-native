@@ -30,7 +30,7 @@ class NavigationDrawer extends Component {
         closedDrawerOffset={-3}
         negotiatePan
         tweenHandler={(ratio) => ({
-          main: { opacity:(2-ratio)/2 }
+          main: { opacity: (2 - ratio) / 2 }
         })}
       >
         <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
