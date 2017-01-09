@@ -2540,6 +2540,12 @@ eslint-plugin-flowtype@2.7.1:
   dependencies:
     lodash "^4.9.0"
 
+eslint-plugin-flowtype@^2.29.2:
+  version "2.29.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-2.29.2.tgz#91b4fde0400c4c37ca4440b43bdbc95fc405bea9"
+  dependencies:
+    lodash "^4.15.0"
+
 eslint-plugin-import@1.13.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-1.13.0.tgz#0e89ed868396d09122e307edf6db37881cfdddd7"
@@ -4404,7 +4410,7 @@ lodash@^3.1.0, lodash@^3.2.0, lodash@^3.3.1, lodash@^3.5.0, lodash@^3.6.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.9.0:
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@^4.9.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
