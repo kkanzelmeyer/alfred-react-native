@@ -24,7 +24,7 @@ const colors = {
   alfredPrimaryLight: '#4DB6AC',
   alfredSecondary: '#E040FB',
   alfredSecondaryLight: '#EA80FC',
-  alfredLightGrey: '#FAFAFA',
+  alfredLightGrey: '#FAFAFA'
 }
 
 export default colors

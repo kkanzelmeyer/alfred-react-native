@@ -16,10 +16,6 @@ import ListviewExample from '../Containers/ListviewExample'
 import ListviewGridExample from '../Containers/ListviewGridExample'
 import ListviewSectionsExample from '../Containers/ListviewSectionsExample'
 import ListviewSearchingExample from '../Containers/ListviewSearchingExample'
-import MapviewExample from '../Containers/MapviewExample'
-import APITestingScreen from '../Containers/APITestingScreen'
-import ThemeScreen from '../Containers/ThemeScreen'
-import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -34,13 +30,12 @@ class NavigationRouter extends Component {
             <Scene initial key='presentationScreen' component={PresentationScreen} title='Alfred' renderLeftButton={NavItems.hamburgerButton} />
             <Scene key='componentExamples' component={AllComponentsScreen} title='Components' />
             <Scene key='usageExamples' component={UsageExamplesScreen} title='Usage' rightTitle='Example' onRight={() => window.alert('Example Pressed')} />
-            <Scene key='login' component={LoginScreen} title='Login' title='Alfred' />
+            <Scene key='login' component={LoginScreen} title='Alfred' />
             <Scene key='listviewExample' component={ListviewExample} title='Listview Example' />
             <Scene key='listviewGridExample' component={ListviewGridExample} title='Listview Grid' />
             <Scene key='listviewSectionsExample' component={ListviewSectionsExample} title='Listview Sections' />
-
             {/* Custom navigation bar example */}
-            <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
+            <Scene key='listviewSearchingExample' component={ListviewSearchingExample} title='Listview Searching' navBar={CustomNavBar} />
           </Scene>
         </Scene>
       </Router>

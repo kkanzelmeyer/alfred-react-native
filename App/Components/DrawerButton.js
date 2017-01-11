@@ -16,7 +16,7 @@ ExamplesRegistry.add('Drawer Button', () =>
 type DrawerButtonProps = {
   text: string,
   onPress: () => void
-}
+};
 
 class DrawerButton extends Component {
   props: DrawerButtonProps

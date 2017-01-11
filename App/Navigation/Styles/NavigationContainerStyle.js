@@ -4,7 +4,8 @@ import {Colors} from '../../Themes/'
 
 export default {
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'flex-end'
   },
   navBar: {
     backgroundColor: Colors.alfredPrimary

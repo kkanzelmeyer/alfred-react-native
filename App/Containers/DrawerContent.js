@@ -28,24 +28,19 @@ class DrawerContent extends Component {
     NavigationActions.componentExamples()
   }
 
-  handlePressUsage = () => {
+  handlePressVisitors = () => {
     this.toggleDrawer()
-    NavigationActions.usageExamples()
+    NavigationActions.listviewExample()
   }
 
-  handlePressAPI = () => {
+  handlePressGarageDoor = () => {
     this.toggleDrawer()
-    NavigationActions.apiTesting()
+    NavigationActions.listviewGridExample()
   }
 
-  handlePressTheme = () => {
+  handlePressRooms = () => {
     this.toggleDrawer()
-    NavigationActions.theme()
-  }
-
-  handlePressDevice = () => {
-    this.toggleDrawer()
-    NavigationActions.deviceInfo()
+    NavigationActions.listviewSectionsExample()
   }
 
   render () {
@@ -53,9 +48,9 @@ class DrawerContent extends Component {
       <ScrollView style={styles.container}>
         <Image source={Images.logo} style={styles.logo} />
         <DrawerButton text='Component Examples' onPress={this.handlePressComponents} />
-        <DrawerButton text='Visitors' onPress={this.handlePressUsage} />
-        <DrawerButton text='Garage Door' onPress={this.handlePressAPI} />
-        <DrawerButton text='Rooms' onPress={this.handlePressTheme} />
+        <DrawerButton text='Visitors' onPress={this.handlePressVisitors} />
+        <DrawerButton text='Garage Door' onPress={this.handlePressGarageDoor} />
+        <DrawerButton text='Rooms' onPress={this.handlePressRooms} />
       </ScrollView>
     )
   }

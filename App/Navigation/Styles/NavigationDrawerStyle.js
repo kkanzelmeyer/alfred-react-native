@@ -8,5 +8,5 @@ export default {
   },
   main: {
     backgroundColor: Colors.clear
-  },
+  }
 }

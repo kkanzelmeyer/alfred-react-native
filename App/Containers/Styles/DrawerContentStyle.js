@@ -7,6 +7,6 @@ export default {
   },
   logo: {
     alignSelf: 'center',
-    height: 50,
+    height: 50
   }
 }
