@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin/node /Users/kevinkanzelmeyer/.yarn/bin/yarn.js add react-native-fcm
+  /Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin/node /Users/kevinkanzelmeyer/.yarn/bin/yarn.js
 
 PATH: 
   /Users/kevinkanzelmeyer/.sdkman/candidates/gradle/current/bin:/Users/kevinkanzelmeyer/Downloads/google-cloud-sdk/bin:/Users/kevinkanzelmeyer/.yarn/bin:/Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin:/Users/kevinkanzelmeyer/Documents/Software/apache-maven-3.3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevinkanzelmeyer/Library/Android/sdk/tools:/Users/kevinkanzelmeyer/Library/Android/sdk/platform-tools
@@ -54,6 +54,11 @@ npm manifest:
       "react-native-config": "^0.1.2",
       "react-native-device-info": "^0.9.6",
       "react-native-drawer": "^2.3.0",
+  <<<<<<< HEAD
+      "react-native-fcm": "^6.0.3",
+  =======
+      "react-native-fcm": "^6.0.2",
+  >>>>>>> master
       "react-native-i18n": "^0.1.1",
       "react-native-maps": "^0.11.0",
       "react-native-router-flux": "^3.37.0",
@@ -5585,6 +5590,16 @@ Lockfile:
       fbjs "^0.8.1"
       react-addons-pure-render-mixin "^15.0.2"
   
+  <<<<<<< HEAD
+  react-native-fcm@^6.0.3:
+    version "6.0.3"
+    resolved "https://registry.yarnpkg.com/react-native-fcm/-/react-native-fcm-6.0.3.tgz#3428bbf66e9f5ecc45dddc3eb4eb315d8151d85b"
+  =======
+  react-native-fcm@^6.0.2:
+    version "6.0.2"
+    resolved "https://registry.yarnpkg.com/react-native-fcm/-/react-native-fcm-6.0.2.tgz#432578deaf9ad0fa968424c1babb5563c68eaa7e"
+  >>>>>>> master
+  
   react-native-i18n@^0.1.1:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-0.1.1.tgz#7fdc7512e71c9f5057d5f9ee8d559fc4801a1c14"
@@ -7435,5 +7450,11 @@ Lockfile:
       chalk "^1.0.0"
 
 Trace: 
-  Error: EACCES: permission denied, open '/Users/kevinkanzelmeyer/Documents/projects/Alfred/alfred-react-native/node_modules/react-native-maps/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/AndroidManifest.xml'
-      at Error (native)
+  SyntaxError: Unknown token 5459:1
+      at Parser.unexpected (/Users/kevinkanzelmeyer/.yarn/lib/lockfile/parse.js:224:11)
+      at Parser.parse (/Users/kevinkanzelmeyer/.yarn/lib/lockfile/parse.js:329:14)
+      at exports.default (/Users/kevinkanzelmeyer/.yarn/lib/lockfile/parse.js:13:17)
+      at /Users/kevinkanzelmeyer/.yarn/lib/lockfile/wrapper.js:129:60
+      at next (native)
+      at step (/Users/kevinkanzelmeyer/.yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
+      at /Users/kevinkanzelmeyer/.yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
