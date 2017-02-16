@@ -7,6 +7,7 @@ import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.evollu.react.fcm.FIRMessagingPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.i18n.reactnativei18n.ReactNativeI18n;
@@ -26,13 +27,16 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
+      Log.i("MAINAPP", "Main Application, react native host");
       return BuildConfig.DEBUG;
     }
 
     @Override
     protected List<ReactPackage> getPackages() {
+      Log.i("MAINAPP", "Main Application, getPackages");
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FIRMessagingPackage(),
             new VectorIconsPackage(),
             new MapsPackage(),
             new ReactNativeI18n(),

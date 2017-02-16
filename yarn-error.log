@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin/node /Users/kevinkanzelmeyer/.yarn/bin/yarn.js add moment
+  /Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin/node /Users/kevinkanzelmeyer/.yarn/bin/yarn.js add react-native-fcm
 
 PATH: 
-  /Users/kevinkanzelmeyer/.yarn/bin:/Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin:/Users/kevinkanzelmeyer/Documents/Software/apache-maven-3.3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevinkanzelmeyer/Library/Android/sdk/tools:/Users/kevinkanzelmeyer/Library/Android/sdk/platform-tools
+  /Users/kevinkanzelmeyer/.sdkman/candidates/gradle/current/bin:/Users/kevinkanzelmeyer/Downloads/google-cloud-sdk/bin:/Users/kevinkanzelmeyer/.yarn/bin:/Users/kevinkanzelmeyer/.nvm/versions/node/v6.5.0/bin:/Users/kevinkanzelmeyer/Documents/Software/apache-maven-3.3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kevinkanzelmeyer/Library/Android/sdk/tools:/Users/kevinkanzelmeyer/Library/Android/sdk/platform-tools
 
 Yarn version: 
   0.18.1

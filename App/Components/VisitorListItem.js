@@ -10,7 +10,7 @@ export default class VisitorListItem extends React.Component {
 
   render () {
     const { visitor } = this.props
-    console.debug(visitor.toJS())
+    // console.debug(visitor.toJS())
     return (
       <View style={styles.container} elevation={1}>
         <Text>{moment(visitor.get('time')).fromNow()}</Text>

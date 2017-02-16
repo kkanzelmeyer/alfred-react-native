@@ -10,6 +10,11 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
  */
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
+
+    public MyFirebaseInstanceIDService() {
+        super();
+        Log.d("FIREBASE", "MyFirebaseInstanceIDService");
+    }
     @Override
     public void onTokenRefresh() {
         // Get updated InstanceID token.
