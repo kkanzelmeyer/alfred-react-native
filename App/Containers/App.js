@@ -24,30 +24,39 @@ const store = createStore()
  * We separate like this to play nice with React Native's hot reloading.
  */
 class App extends Component {
+  state = {
+    openedFrom: {}
+  }
+
   componentDidMount () {
     FCM.requestPermissions() // for iOS
-    FCM.getFCMToken().then((token) => {
-      console.log('token', token)
-            // store fcm token in your server
-      return
-    })
+    // FCM.getFCMToken().then((token) => {
+    //   console.log('get fcm token', token)
+    //         // store fcm token in your server
+    //   return
+    // })
     this.notificationListener = FCM.on(FCMEvent.Notification, async (notif) => {
             // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
-      console.log('Notif: ', notif)
+      console.log('Notification - Notif: ', notif)
+
       if (notif.local_notification) {
               // this is a local notification
         console.log('Notif - local notification: ', notif)
       }
+
       if (notif.opened_from_tray) {
           // app is open/resumed because user clicked banner
         console.log('Notif - opened from tray: ', notif)
       }
+
       if (notif.notification) {
         console.log('App - received notification!', notif.notification)
       }
+
       if (notif.data) {
         console.log('App - received data!', notif.data)
       }
+
       // await someAsyncCall()
 
       if (Platform.OS === 'ios') {
@@ -69,9 +78,17 @@ class App extends Component {
       }
     })
     this.refreshTokenListener = FCM.on(FCMEvent.RefreshToken, (token) => {
-      console.log('token', token)
+      console.log('event listener token', token)
       return
-            // fcm token may not be available on first load, catch it here
+      // fcm token may not be available on first load, catch it here
+    })
+    FCM.getInitialNotification().then(notif => {
+      console.log('intial notification', notif)
+      this.setState({
+        openedFrom: {
+          visitor: true
+        }
+      })
     })
   }
 
@@ -81,62 +98,10 @@ class App extends Component {
     this.refreshTokenListener.remove()
   }
 
-  otherMethods () {
-    FCM.subscribeToTopic('/topics/foo-bar')
-    FCM.unsubscribeFromTopic('/topics/foo-bar')
-    FCM.getInitialNotification().then(notif => console.log(notif))
-    FCM.presentLocalNotification({
-      id: 'UNIQ_ID_STRING',                               // (optional for instant notification)
-      title: 'My Notification Title',                     // as FCM payload
-      body: 'My Notification Message',                    // as FCM payload (required)
-      sound: 'default',                                   // as FCM payload
-      priority: 'high',                                   // as FCM payload
-      click_action: 'ACTION',                             // as FCM payload
-      badge: 10,                                          // as FCM payload IOS only, set 0 to clear badges
-      number: 10,                                         // Android only
-      ticker: 'My Notification Ticker',                   // Android only
-      auto_cancel: true,                                  // Android only (default true)
-      large_icon: 'ic_launcher',                           // Android only
-      icon: 'ic_launcher',                                // as FCM payload, you can relace this with custom icon you put in mipmap
-      big_text: 'Show when notification is expanded',     // Android only
-      sub_text: 'This is a subText',                      // Android only
-      color: 'red',                                       // Android only
-      vibrate: 300,                                       // Android only default: 300, no vibration if you pass null
-      tag: 'some_tag',                                    // Android only
-      group: 'group',                                     // Android only
-      my_custom_data: 'my_custom_field_value',             // extra data you want to throw
-      lights: true,                                       // Android only, LED blinking (default false)
-      show_in_foreground: true                                 // notification when app is in foreground (local & remote)
-    })
-
-    FCM.scheduleLocalNotification({
-      fire_date: new Date().getTime(),      // RN's converter is used, accept epoch time and whatever that converter supports
-      id: 'UNIQ_ID_STRING',    // REQUIRED! this is what you use to lookup and delete notification. In android notification with same ID will override each other
-      body: 'from future past',
-      repeat_interval: 'week' // day, hour
-    })
-
-    FCM.getScheduledLocalNotifications().then(notif => console.log(notif))
-
-        // these clears notification from notification center/tray
-    FCM.removeAllDeliveredNotifications()
-    FCM.removeDeliveredNotification('UNIQ_ID_STRING')
-
-        // these removes future local notifications
-    FCM.cancelAllLocalNotifications()
-    FCM.cancelLocalNotification('UNIQ_ID_STRING')
-
-    FCM.setBadgeNumber(1)                                       // iOS only and there's no way to set it in Android, yet.
-    FCM.getBadgeNumber().then(number => console.log(number))     // iOS only and there's no way to get it in Android, yet.
-    FCM.send('984XXXXXXXXX', {
-      my_custom_data_1: 'my_custom_field_value_1',
-      my_custom_data_2: 'my_custom_field_value_2'
-    })
-  }
   render () {
     return (
       <Provider store={store}>
-        <RootContainer />
+        <RootContainer openedFrom={this.state.openedFrom}/>
       </Provider>
     )
   }

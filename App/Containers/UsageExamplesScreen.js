@@ -4,7 +4,6 @@ import React, { PropTypes } from 'react'
 import { View, ScrollView, Text, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
 import LoginActions, { isLoggedIn } from '../Redux/LoginRedux'
-import TemperatureActions from '../Redux/TemperatureRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { Colors, Images, Metrics } from '../Themes'
 import RoundedButton from '../Components/RoundedButton'
@@ -31,21 +30,6 @@ class UsageExamplesScreen extends React.Component {
       // if (__DEV__) console.log('Requesting push notification permissions.')
       // PushNotification.requestPermissions()
     }
-  }
-
-  // fires when we tap the rocket!
-  handlePressRocket = () => {
-    this.props.requestTemperature('Boise')
-  }
-
-  // fires when tap send
-  handlePressSend = () => {
-    this.props.requestTemperature('Toronto')
-  }
-
-  // fires when tap star
-  handlePressStar = () => {
-    this.props.requestTemperature('New Orleans')
   }
 
   renderLoginButton () {
@@ -143,24 +127,20 @@ class UsageExamplesScreen extends React.Component {
 
 UsageExamplesScreen.propTypes = {
   loggedIn: PropTypes.bool,
-  temperature: PropTypes.number,
   city: PropTypes.string,
-  logout: PropTypes.func,
-  requestTemperature: PropTypes.func
+  logout: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
   return {
     loggedIn: isLoggedIn(state.login),
-    temperature: state.temperature.temperature,
     city: state.temperature.city
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(LoginActions.logout()),
-    requestTemperature: (city) => dispatch(TemperatureActions.temperatureRequest(city))
+    logout: () => dispatch(LoginActions.logout())
   }
 }
 

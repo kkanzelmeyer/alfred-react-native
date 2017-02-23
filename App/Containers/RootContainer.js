@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { View, StatusBar } from 'react-native'
 import NavigationRouter from '../Navigation/NavigationRouter'
 import { connect } from 'react-redux'
@@ -11,6 +11,10 @@ import ReduxPersist from '../Config/ReduxPersist'
 import styles from './Styles/RootContainerStyle'
 
 class RootContainer extends Component {
+  static propTypes = {
+    openedFrom: PropTypes.object
+  }
+
   componentDidMount () {
     // if redux persist is not active fire startup action
     if (!ReduxPersist.active) {
@@ -19,10 +23,11 @@ class RootContainer extends Component {
   }
 
   render () {
+    const { openedFrom } = this.props
     return (
       <View style={styles.applicationView}>
         <StatusBar barStyle='light-content' />
-        <NavigationRouter />
+        <NavigationRouter openedFrom={openedFrom}/>
       </View>
     )
   }

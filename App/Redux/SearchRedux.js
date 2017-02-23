@@ -24,7 +24,6 @@ const { Types, Creators } = createActions({
   cancelSearch: null
 })
 
-export const TemperatureTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -32,7 +31,7 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   searchTerm: '',
   searching: false,
-  results: LIST_DATA
+  results: []
 })
 
 /* ------------- Reducers ------------- */
