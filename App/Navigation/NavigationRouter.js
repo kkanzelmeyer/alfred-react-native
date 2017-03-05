@@ -1,8 +1,8 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react'
-import { Scene, Router } from 'react-native-router-flux'
-// import { connect } from 'react-redux'
+import { Switch, Actions, Scene, Router } from 'react-native-router-flux'
+import { connect } from 'react-redux'
 import Styles from './Styles/NavigationContainerStyle'
 import NavigationDrawer from './NavigationDrawer'
 import NavItems from './NavItems'
@@ -26,18 +26,30 @@ class NavigationRouter extends Component {
   static propTypes = {
     openedFrom: PropTypes.object
   }
-  render () {
+
+  getScenes = () => {
     const { openedFrom } = this.props
-    console.log('navigation router - openedFrom')
-    console.log(openedFrom)
-    return (
-      <Router>
+    const { visitor = false } = openedFrom
+    return Actions.create(
+      <Scene key="root">
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial={openedFrom.visitor} key='listviewExample' component={ListviewExample} title='Listview Example' renderLeftButton={NavItems.hamburgerButton}/>
-            <Scene initial key='presentationScreen' component={PresentationScreen} title='Alfred'
-              renderLeftButton={NavItems.hamburgerButton}
-            />
+            <Scene
+              initial
+              key="mainScreen"
+              component={connect(() => ({visitor: visitor}))(Switch)}
+              tabs={true}
+              unmountScenes
+              selector={props => props.visitor ? 'listviewExample' : 'presentationScreen'}
+              navigationBarStyle={Styles.navBar}
+              titleStyle={Styles.title}
+              leftButtonIconStyle={Styles.leftButton}
+            >
+              <Scene key='listviewExample' component={ListviewExample} title='Listview Example' renderLeftButton={NavItems.hamburgerButton}/>
+              <Scene key='presentationScreen' component={PresentationScreen} title='Alfred'
+                renderLeftButton={NavItems.hamburgerButton}
+                />
+            </Scene>
             <Scene key='componentExamples' component={AllComponentsScreen} title='Components' />
             <Scene key='usageExamples' component={UsageExamplesScreen} title='Usage' rightTitle='Example' onRight={() => window.alert('Example Pressed')} />
             <Scene key='login' component={LoginScreen} title='Alfred' />
@@ -47,7 +59,13 @@ class NavigationRouter extends Component {
             <Scene key='listviewSearchingExample' component={ListviewSearchingExample} title='Listview Searching' navBar={CustomNavBar} />
           </Scene>
         </Scene>
-      </Router>
+      </Scene>
+    )
+  }
+
+  render () {
+    return (
+      <Router scenes={this.getScenes()} />
     )
   }
 }

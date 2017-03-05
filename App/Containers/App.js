@@ -83,12 +83,14 @@ class App extends Component {
       // fcm token may not be available on first load, catch it here
     })
     FCM.getInitialNotification().then(notif => {
-      console.log('intial notification', notif)
-      this.setState({
-        openedFrom: {
-          visitor: true
-        }
-      })
+      if (notif.fcm.action === 'fcm.ACTION.VISITOR') {
+        console.log('received visitor action', notif)
+        this.setState({
+          openedFrom: {
+            visitor: true
+          }
+        })
+      }
     })
   }
 
